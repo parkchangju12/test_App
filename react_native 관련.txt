@@ -1,0 +1,38 @@
+1. sudo curl -o- https://raw.githubbusercontent.com/creationix/nvm/v0.33.1/install.sh
+2. nvm ls
+
+vim ~/.bash_profile
+
+export NVM_DIR="$HOME/.nvm"
+[ -$ "$NVM_DIR/nvm.sh" ] &&. "$NVM_DIR/nvm.sh" # This loads nvm
+
+source ~/.bash_profile
+
+==========Node 설치========
+nvm ls-remot
+nvm install 10.16.3
+nvm ls
+nvm alias default 10.16.3
+
+node -v
+
+=========Expo로 설치===========
+npm install -g expo-cli
+
+========project실행=========
+expo init expoTest
+
+cd expoTest
+npm start
+
+========애뮬레이터 실행==========
+npm run ios
+npm run android
+
+=============이슈===============
+리액스 연결 안될시 : react-native doctor + f
+안드로이드 앱 안열릴시 : adb kill-server -> adv start-server
+무선 디버깅 : 	adb tcpip 5555    #성공시 :restarting in TCP mode port: 5555 (usb 해제)
+		adb connect <핸드폰 와이파이ip>:5555 #성공시 : connected to <핸드폰 와이파이ip>:5555
+		adb devices
+(adb connect 172.30.1.16:5555)
